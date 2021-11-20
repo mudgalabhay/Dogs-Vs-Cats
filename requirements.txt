@@ -68,3 +68,4 @@ wincertstore==0.2
 wrapt==1.12.1
 yarl
 zipp 
+gunicorn==20.1.0
