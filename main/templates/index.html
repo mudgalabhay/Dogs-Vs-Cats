@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Dogs Vs Cats</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    {% block content %}
+    <form class="form-upload" method="POST" action="predict" enctype="multipart/form-data">
+      {% csrf_token %}
+      <img class="mb-4" src="{% static 'images/img.png' %}" alt="" width="256" height="256">
+      <h1 class="h3 mb-3 font-weight-normal">Please upload image</h1>
+      <input type="file" id="uploaded_image" name="uploaded_image" class="form-control" required autofocus>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" name="predict">Predict</button>
+      <br>
+      {% if image_filename %}
+      <img class="mb-4" src="static/uploaded_images/{{image_filename}}" alt="IMAGE NOT AVAILABLE" width="256" height="256">
+      <h3 class="h3 mb-3 font-weight-normal">Prediction : {{prediction}}</h3>
+      {% endif %}
+    </form>
+    {% endblock %}
+  </body>
+</html>
