@@ -3,10 +3,10 @@ import time
 
 from django.shortcuts import render
 
-from keras import models
-from keras.models import load_model
+from tensorflow.keras import models
+from tensorflow.keras.models import load_model
 import pandas as pd
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 def homepage(request):
 
